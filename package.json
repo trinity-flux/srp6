@@ -1,6 +1,6 @@
 {
   "name": "@trinity-flux/srp6",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "index.js",
   "private": false,
   "description": "This module provides the client implementations of trinity SRP-6a for node.js",
