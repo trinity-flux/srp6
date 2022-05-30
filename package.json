@@ -1,0 +1,36 @@
+{
+  "name": "@trinity-flux/srp6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": false,
+  "description": "This module provides the client implementations of trinity SRP-6a for node.js",
+  "keywords": [
+    "Trinity",
+    "Trinitycore",
+    "srp6"
+  ],
+  "homepage": "https://github.com/trinity-flux/srp6#readme",
+  "bugs": {
+    "url": "https://github.com/trinity-flux/srp6/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trinity-flux/srp6.git"
+  },
+  "author": "Trinity flux Team",
+  "contributors": [
+    "Juan Echeverry <e.juandav@gmail.com>"
+  ],
+  "license": "apache license 2.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:sample": "node ./sample"
+  },
+  "dependencies": {
+    "big-integer": "1.6.51",
+    "bigint-buffer": "1.1.5",
+    "dayjs": "1.11.2",
+    "is_js": "0.9.0",
+    "serialize-error": "8.1.0"
+  }
+}
