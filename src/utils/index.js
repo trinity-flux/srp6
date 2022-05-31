@@ -17,19 +17,19 @@ const generateSalt = () => Buffer.from(crypto.randomBytes(32));
 const generateVerifier = (salt, identify, password) => {
   isSalt(salt);
 
-  const fistHash = crypto.createHash(hashFormat)
+  const firstHash = crypto.createHash(hashFormat)
     .update(`${identify.toUpperCase()}:${password.toUpperCase()}`)
     .digest();
 
   const secondHash = crypto.createHash(hashFormat)
     .update(salt)
-    .update(fistHash)
+    .update(firstHash)
     .digest();
 
   const littleEndianInteger = bigintBuffer.toBigIntLE(secondHash);
   const littleEndianIntegerPow = BigInteger(g).modPow(littleEndianInteger, N);
-  const littleEndianIntegerOrder =  littleEndianIntegerPow.value.toString(16).match(/.{2}/g).reverse().join(``);
-  const verifier = Buffer.from(littleEndianIntegerOrder, `hex`);
+  const littleEndianIntegerOrder =  littleEndianIntegerPow.value.toString(16).match(/.{2}/g).reverse().join('');
+  const verifier = Buffer.from(littleEndianIntegerOrder, 'hex');
   return verifier;
 };
 

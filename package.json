@@ -25,6 +25,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:sample": "node ./sample",
+    "start:sampledb": "node ./sample/db",
     "major": "npm run release -- --release-as major",
     "minor": "npm run release -- --release-as minor",
     "patch": "npm run release -- --release-as patch",
@@ -38,6 +39,7 @@
     "serialize-error": "8.1.0"
   },
   "devDependencies": {
+    "mysql2": "^2.3.3",
     "standard-version": "^9.5.0"
   }
 }
