@@ -1,0 +1,62 @@
+{
+  "name": "@trinity-flux/srp6",
+  "version": "2.0.0",
+  "description": "TrinityCore-compatible SRP6 verifier generation (RFC 2945 / RFC 5054 variant) for node.js",
+  "keywords": [
+    "Trinity",
+    "Trinitycore",
+    "srp6",
+    "srp",
+    "srp-6a",
+    "rfc2945",
+    "rfc5054"
+  ],
+  "homepage": "https://github.com/trinity-flux/srp6#readme",
+  "bugs": {
+    "url": "https://github.com/trinity-flux/srp6/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trinity-flux/srp6.git",
+    "directory": "packages/srp6"
+  },
+  "author": "Trinity flux Team",
+  "contributors": [
+    "Juan Echeverry <e.juandav@gmail.com>"
+  ],
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

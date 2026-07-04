@@ -1,0 +1,21 @@
+{
+  "name": "@trinity-flux/sample",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Usage examples for @trinity-flux/srp6",
+  "type": "module",
+  "scripts": {
+    "start": "tsx index.ts",
+    "start:db": "tsx db.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@trinity-flux/srp6": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "mysql2": "^3.14.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
