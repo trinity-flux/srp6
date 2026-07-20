@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img">
+  <title>trinity-flux srp6</title>
+  <path
+    d="M32 4 L56 12 V30 C56 44 46 55 32 60 C18 55 8 44 8 30 V12 Z"
+    fill="#2e8555"
+  />
+  <path
+    d="M32 10 L50 16 V30 C50 41 42 50 32 54 C22 50 14 41 14 30 V16 Z"
+    fill="#ffffff"
+    opacity="0.15"
+  />
+  <rect x="24" y="28" width="16" height="14" rx="2" fill="#ffffff" />
+  <path
+    d="M27 28 v-5 a5 5 0 0 1 10 0 v5"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="3.5"
+  />
+  <circle cx="32" cy="34" r="2.5" fill="#2e8555" />
+  <rect x="30.8" y="34" width="2.4" height="5" rx="1" fill="#2e8555" />
+</svg>

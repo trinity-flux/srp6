@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "@trinity-flux/srp6",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "trinity-flux logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Docs": {
+    "message": "Documentación",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.npm": {
+    "message": "npm",
+    "description": "Navbar item with label npm"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

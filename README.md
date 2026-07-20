@@ -6,6 +6,8 @@ a TrinityCore-compatible SRP6 verifier library for node.js.
 ## Structure
 
 - [`packages/srp6`](packages/srp6) — the published npm package (`@trinity-flux/srp6`)
+- [`apps/docs`](apps/docs) — Docusaurus documentation site
+  ([trinity-flux.github.io/srp6](https://trinity-flux.github.io/srp6/))
 - [`examples/sample`](examples/sample) — usage examples (in-memory and MySQL/TrinityCore `auth` DB)
 
 ## Development
@@ -24,6 +26,8 @@ pnpm format      # biome format --write .
 
 pnpm start:sample    # run the in-memory example
 pnpm start:sampledb  # run the MySQL example (requires a TrinityCore auth DB)
+
+pnpm --filter @trinity-flux/docs dev  # docs site at http://localhost:3000/srp6/
 ```
 
 ## Releasing
