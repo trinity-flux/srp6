@@ -9,7 +9,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 permissions:
   contents: write
   pull-requests: write
-  id-token: write # npm provenance
+  id-token: write # OIDC: npm trusted publishing + provenance
 
 jobs:
   release:
@@ -25,8 +25,26 @@ jobs:
           cache: pnpm
           registry-url: https://registry.npmjs.org
 
+      # npm trusted publishing (OIDC) needs npm >= 11.5.1; Node 22 bundles npm 10.x.
+      - name: Upgrade npm
+        run: npm install -g npm@^11.5.1
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Report npm auth mode
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "node $(node --version) / npm $(npm --version)"
+          if [ -n "$NPM_TOKEN" ]; then
+            echo "Auth mode: NPM_TOKEN secret"
+            echo "Note: the package disallows tokens, so the registry will reject this."
+          else
+            echo "Auth mode: OIDC trusted publishing"
+            echo "Trusted publisher on npmjs.com must match:"
+            echo "  repository trinity-flux/srp6, workflow release.yml"
+          fi
 
       - name: Create release PR or publish to npm
         uses: changesets/action@v1
@@ -35,5 +53,9 @@ jobs:
           version: pnpm version-packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Left empty on purpose: the package disallows token auth, and an unset
+          # NODE_AUTH_TOKEN makes npm fail resolving ${NODE_AUTH_TOKEN} in .npmrc.
+          # Empty values keep npm quiet and let it take the OIDC path.
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: "true"

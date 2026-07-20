@@ -17,7 +17,7 @@
     "dev": "turbo run dev",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build test && changeset publish",
+    "release": "turbo run build test --filter @trinity-flux/srp6 && changeset publish",
     "start:sample": "pnpm --filter @trinity-flux/sample start",
     "start:sampledb": "pnpm --filter @trinity-flux/sample start:db"
   },

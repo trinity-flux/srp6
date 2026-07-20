@@ -39,7 +39,23 @@ Versions are managed with [Changesets](https://github.com/changesets/changesets)
 2. When it lands on `main`, the [release workflow](.github/workflows/release.yml)
    opens/updates a **Version Packages** PR that bumps versions and changelogs.
 3. Merging that PR publishes `@trinity-flux/srp6` to npm with provenance.
-   Requires the `NPM_TOKEN` repository secret.
+
+### npm authentication
+
+Publishing uses **npm trusted publishing (OIDC)** — no secrets, nothing to
+rotate. The package is configured on npmjs.com with *Publishing access:
+"Require two-factor authentication and disallow tokens"*, so token-based
+publishing is rejected by the registry and OIDC is the only supported path.
+
+The trust relationship is registered under the package's *Settings → Trusted
+Publisher* as: organization `trinity-flux`, repository `srp6`, workflow
+`release.yml`. **Renaming or moving this workflow file breaks publishing** —
+update the trusted publisher entry first.
+
+OIDC requires npm >= 11.5.1, so the workflow installs it explicitly (Node 22
+still bundles npm 10.x, which silently falls back to token auth and fails
+with `ENEEDAUTH`). The "Report npm auth mode" step logs the versions and the
+auth mode in use.
 
 ## License
 
